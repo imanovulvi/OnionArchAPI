@@ -9,6 +9,9 @@ namespace OnionArchAPI.Application.Abstractions.Repositorys
 {
     public interface IWriteRepository<T>:IRepository<T> where T : class,IEntityBase
     {
-
+        Task AddAsync(T entity);
+        Task AddRangeAsync(ICollection<T> entitys);
+        Task UpdateAsync(T entity);
+        Task DeleteAsync(T entity);
     }
 }
