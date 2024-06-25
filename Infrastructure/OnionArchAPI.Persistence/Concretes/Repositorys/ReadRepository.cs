@@ -13,17 +13,17 @@ namespace OnionArchAPI.Persistence.Concretes.Repositorys
 {
     public class ReadRepository<T> : IReadRepository<T> where T : class, IEntityBase
     {
-        private readonly AppDBContext appDBContext;
+        private readonly AppDBContext context;
 
         public ReadRepository()
         {
             
         }
-        public ReadRepository(AppDBContext appDBContext)
+        public ReadRepository(AppDBContext context)
         {
-            this.appDBContext = appDBContext;
+            this.context = context;
         }
-        public DbSet<T> Table => this.appDBContext.Set<T>();
+        public DbSet<T> Table => this.context.Set<T>();
 
         public async Task<int> CountAsync(Expression<Func<T, bool>> predicate, bool tracing = false)
         {
