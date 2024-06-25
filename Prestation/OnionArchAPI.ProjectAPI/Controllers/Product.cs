@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnionArchAPI.Application.Abstractions.UnitOfWorks;
+using OnionArchAPI.Application.Features.Product.Querys.GetAllProducts;
 using Ent=OnionArchAPI.Domen.Entitys;
 
 namespace OnionArchAPI.ProjectAPI.Controllers
@@ -10,17 +12,17 @@ namespace OnionArchAPI.ProjectAPI.Controllers
     [ApiController]
     public class Product : ControllerBase
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IMediator mediator;
 
-        public Product(IUnitOfWork unitOfWork)
+        public Product(IMediator mediator)
         {
-            this.unitOfWork = unitOfWork;
+            this.mediator = mediator;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get() 
         {
-            return Ok(await unitOfWork.GetReadRepository<Ent.Product>().GetAll().ToListAsync());
+            return Ok(await this.mediator.Send(new GetAllProductsQueryRequest()));
         }
     }
 }
