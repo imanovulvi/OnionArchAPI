@@ -2,7 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OnionArchAPI.Application.Abstractions.Repositorys;
+using OnionArchAPI.Application.Abstractions.UnitOfWorks;
 using OnionArchAPI.Persistence.Concretes.Repositorys;
+using OnionArchAPI.Persistence.Concretes.UnitOfWorks;
 using OnionArchAPI.Persistence.Context;
 
 namespace OnionArchAPI.Persistence
@@ -14,6 +16,8 @@ namespace OnionArchAPI.Persistence
             services.AddDbContext<AppDBContext>(x => x.UseSqlServer(configuration.GetConnectionString("sqlConnectionStr")));
             services.AddScoped(typeof(IReadRepository<>),typeof(ReadRepository<>));
             services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }

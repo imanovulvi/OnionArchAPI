@@ -17,7 +17,7 @@ namespace OnionArchAPI.Domen.Entitys
         {
             this.Name = Name;
         }
-        public required string Name { get; set; }
+        public  string Name { get; set; }
 
         public ICollection<Product> Products { get; set; }
     }
