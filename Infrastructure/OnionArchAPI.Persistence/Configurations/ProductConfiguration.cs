@@ -14,10 +14,10 @@ namespace OnionArchAPI.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasData(
-                new Product { BrandId = 1, Title = "Kofta", Description = "test", Price = 34 },
-                 new Product { BrandId = 3, Title = "Iphone", Description = "test", Price = 158 },
-                  new Product { BrandId = 2, Title = "Notebook", Description = "test", Price = 346 },
-                   new Product { BrandId = 1, Title = "salvar", Description = "test", Price = 12 }
+                new Product {Id=1, BrandId = 1, Title = "Kofta", Description = "test", Price = 34 },
+                 new Product { Id = 2, BrandId = 3, Title = "Iphone", Description = "test", Price = 158 },
+                  new Product { Id = 3, BrandId = 2, Title = "Notebook", Description = "test", Price = 346 },
+                   new Product { Id =4, BrandId = 1, Title = "salvar", Description = "test", Price = 12 }
                 );
         }
     }

@@ -15,10 +15,10 @@ namespace OnionArchAPI.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Detail> builder)
         {
             builder.HasData(
-                new Detail() { Title = "Material", Description = "Cotton",  CategoryId=4 },
-                new Detail() { Title = "Ram", Description = "8gb", CategoryId=2 },
-                new Detail() { Title = "Uzunluq", Description = "125sm",  CategoryId = 6 },
-                new Detail() { Title = "Cekilis", Description = "50px",  CategoryId = 3}
+                new Detail() { Id=1,Title = "Material", Description = "Cotton",  CategoryId=4 },
+                new Detail() { Id = 2, Title = "Ram", Description = "8gb", CategoryId=2 },
+                new Detail() { Id = 3, Title = "Uzunluq", Description = "125sm",  CategoryId = 6 },
+                new Detail() { Id = 4, Title = "Cekilis", Description = "50px",  CategoryId = 3}
                 );
         }
     }
