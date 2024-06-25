@@ -14,10 +14,7 @@ namespace OnionArchAPI.Persistence.Concretes.Repositorys
     {
         private readonly AppDBContext context;
 
-        public WriteRepository()
-        {
-
-        }
+       
         public WriteRepository(AppDBContext context)
         {
             this.context = context;
