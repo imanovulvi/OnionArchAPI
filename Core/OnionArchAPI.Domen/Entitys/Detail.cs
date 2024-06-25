@@ -13,10 +13,10 @@ namespace OnionArchAPI.Domen.Entitys
         {
             
         }
-        public Detail(string Title,string Dexription,int CategoryId)
+        public Detail(string Title,string Description, int CategoryId)
         {
            this.Title = Title;
-            this.Description = Dexription;
+            this.Description = Description;
             this.CategoryId = CategoryId;
         }
         public required string Title { get; set; }
