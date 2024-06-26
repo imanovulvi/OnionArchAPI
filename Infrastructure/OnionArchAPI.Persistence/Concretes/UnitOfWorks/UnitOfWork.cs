@@ -17,12 +17,16 @@ namespace OnionArchAPI.Persistence.Concretes.UnitOfWorks
         public UnitOfWork(AppDBContext context)
         {
             this.context = context;
+         
         }
-        public ValueTask DisposeAsync() => DisposeAsync();
+
+
+
+        public async ValueTask DisposeAsync() =>  await context.DisposeAsync();
 
         public int Save() => this.context.SaveChanges();
 
-        public Task<int> SaveAsync() => this.context.SaveChangesAsync();
+        public async Task<int> SaveAsync() => await this.context.SaveChangesAsync();
 
         IReadRepository<T> IUnitOfWork.GetReadRepository<T>()
             => new ReadRepository<T>(context);
