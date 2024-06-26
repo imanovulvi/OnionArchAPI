@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnionArchAPI.Application.Features.Product.Querys.GetAllProducts
 {
-    public class GetAllProductsQueryRequest:IRequest<ICollection<GetAllProductsQueryResponse>>
+    public class GetAllProductsQueryRequest:IRequest<IList<GetAllProductsQueryResponse>>
     {
     }
 }

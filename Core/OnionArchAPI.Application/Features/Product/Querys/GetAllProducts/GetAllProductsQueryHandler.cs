@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OnionArchAPI.Application.Features.Product.Querys.GetAllProducts
 {
-    public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQueryRequest, ICollection<GetAllProductsQueryResponse>>
+    public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQueryRequest, IList<GetAllProductsQueryResponse>>
     {
         private readonly IUnitOfWork unitOfWork;
 
@@ -19,7 +19,9 @@ namespace OnionArchAPI.Application.Features.Product.Querys.GetAllProducts
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<ICollection<GetAllProductsQueryResponse>> Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
+
+
+        public async Task<IList<GetAllProductsQueryResponse>> Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
         {
             var products = await this.unitOfWork.GetReadRepository<OnionArchAPI.Domen.Entitys.Product>().GetAll().ToListAsync();
 
@@ -36,6 +38,7 @@ namespace OnionArchAPI.Application.Features.Product.Querys.GetAllProducts
                     }
                     );
             }
+
             return response;
         }
     }
