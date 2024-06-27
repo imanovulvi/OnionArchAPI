@@ -1,4 +1,5 @@
 using OnionArchAPI.Application;
+using OnionArchAPI.Application.Exception;
 using OnionArchAPI.Persistence;
 
 namespace OnionArchAPI.ProjectAPI
@@ -10,7 +11,7 @@ namespace OnionArchAPI.ProjectAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-           
+
             builder.Services.AddControllers();
             builder.Services.AddPersistence(builder.Configuration);
             builder.Services.AddApplication();
@@ -28,7 +29,7 @@ namespace OnionArchAPI.ProjectAPI
             }
 
             app.UseHttpsRedirection();
-
+            app.UseMiddleware<ExceptionsMiddleWare>();
             app.UseAuthorization();
 
 
