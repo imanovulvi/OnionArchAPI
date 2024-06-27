@@ -1,11 +1,6 @@
-﻿using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.Extensions.DependencyInjection;
+using OnionArchAPI.Application.Exception;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnionArchAPI.Application
 {
@@ -14,6 +9,7 @@ namespace OnionArchAPI.Application
         public static void AddApplication(this IServiceCollection services) 
         {
             services.AddMediatR(x=>x.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+            services.AddTransient<ExceptionsMiddleWare>();
 
         }
     }
