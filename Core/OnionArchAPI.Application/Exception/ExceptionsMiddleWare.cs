@@ -44,14 +44,6 @@ namespace OnionArchAPI.Application.Exception
 
             }));
 
-            //await httpContext.Response.WriteAsync(
-            //    new ExceptionsModel()
-            //    {
-            //        Errors = errors,
-            //        StatusCode = statusCode
-            //    }.ToString()
-
-            //    );
 
         }
 

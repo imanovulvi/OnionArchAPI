@@ -16,15 +16,20 @@ namespace OnionArchAPI.Persistence
         public static void AddPersistence(this IServiceCollection services,IConfiguration configuration)
         {
             services.AddDbContext<AppDBContext>(x => x.UseSqlServer(configuration.GetConnectionString("sqlConnectionStr")));
+            _ = services.AddIdentityCore<User>(x =>
+            {
+                x.Password.RequireUppercase = false;
+                x.Password.RequireUppercase = false;
+                x.Password.RequireNonAlphanumeric = false;
+                x.Password.RequireLowercase = false;
+            }
+             ).AddRoles<Role>().AddEntityFrameworkStores<AppDBContext>();
+
+
+
+
             services.AddScoped(typeof(IReadRepository<>),typeof(ReadRepository<>));
             services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
-            services.AddIdentityCore<User>(x => {
-                x.Password.RequireUppercase = false;
-            
-            }
-                
-                ).AddRoles<Role>().AddEntityFrameworkStores<AppDBContext>();
-
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

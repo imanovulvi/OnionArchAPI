@@ -1,5 +1,6 @@
 using OnionArchAPI.Application;
 using OnionArchAPI.Application.Exception;
+using OnionArchAPI.Infrastructure;
 using OnionArchAPI.Persistence;
 
 namespace OnionArchAPI.ProjectAPI
@@ -13,6 +14,7 @@ namespace OnionArchAPI.ProjectAPI
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddInfrastructure();
             builder.Services.AddPersistence(builder.Configuration);
             builder.Services.AddApplication();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

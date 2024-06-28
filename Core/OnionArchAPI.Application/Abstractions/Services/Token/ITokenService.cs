@@ -10,6 +10,9 @@ namespace OnionArchAPI.Application.Abstractions.Services.Token
 {
     public interface ITokenService
     {
-        Task<JwtSecurityToken> CreateAccessToken(User user, List<string> roles);
+        Task<JwtSecurityToken> CreateAccessTokenAsync(User user, IList<string> roles);
+
+        string CreateRefreshToken();
+
     }
 }
