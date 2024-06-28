@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using OnionArchAPI.Domen.Entitys;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OnionArchAPI.Persistence.Context
 {
-    public class AppDBContext:DbContext
+    public class AppDBContext:IdentityDbContext<User,Role,Guid>
     {
         public AppDBContext()
         {
