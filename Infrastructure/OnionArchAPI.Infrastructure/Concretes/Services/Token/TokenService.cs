@@ -33,7 +33,7 @@ namespace OnionArchAPI.Infrastructure.Concretes.Services.Token
             JwtSecurityToken jwtToken = new JwtSecurityToken(
                 issuer: configuration["JWT:issuer"],
                 audience: configuration["JWT:audience"],
-                expires:DateTime.Now.AddMinutes(int.Parse(configuration["JWT:expires"])),
+                expires:DateTime.UtcNow.AddMinutes(int.Parse(configuration["JWT:expires"])),
                 signingCredentials: new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256),
                 claims:claims
                 );

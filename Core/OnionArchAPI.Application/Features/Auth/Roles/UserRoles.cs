@@ -25,5 +25,20 @@ namespace OnionArchAPI.Application.Features.Auth.Roles
             else if(!isPassword)
                 throw new ApplicationException("Sifre yanlisdir");
         }
+
+        public void RefreshToken(User user)
+        {
+
+            if (user == null || user.RefreshTokenExpire <= DateTime.UtcNow)
+                throw new ApplicationException("Token vaxdi bitin yeniden login olun");
+        }
+
+        public void GetEmail(User user)
+        {
+
+            if (user is null)
+                throw new ApplicationException("Bu Emailde user tapilmadi");
+        }
+
     }
 }
