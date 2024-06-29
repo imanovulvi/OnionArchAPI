@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnionArchAPI.Application.Abstractions.Repositorys;
 using OnionArchAPI.Application.Abstractions.UnitOfWorks;
@@ -26,6 +27,7 @@ namespace OnionArchAPI.ProjectAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Get() 
         {
 

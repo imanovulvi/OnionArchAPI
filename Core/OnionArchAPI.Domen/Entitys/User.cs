@@ -11,6 +11,6 @@ namespace OnionArchAPI.Domen.Entitys
     {
         public string FullName { get; set; }
         public string? RefreshToken { get; set; }
-        public DateTime RefreshTokenExpire { get; set; }
+        public DateTime? RefreshTokenExpire { get; set; }
     }
 }
