@@ -2,11 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using OnionArchAPI.Application.Features.Auth.Roles;
 using OnionArchAPI.Domen.Entitys;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnionArchAPI.Application.Features.Auth.Commands.AddUser
 {
