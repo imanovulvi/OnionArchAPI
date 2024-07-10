@@ -18,4 +18,8 @@
     <ProjectReference Include="..\OnionArchAPI.Domen\OnionArchAPI.Domen.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Brand\Querys\" />
+  </ItemGroup>
+
 </Project>

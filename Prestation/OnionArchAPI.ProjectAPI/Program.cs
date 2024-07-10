@@ -17,7 +17,7 @@ namespace OnionArchAPI.ProjectAPI
             // Add services to the container.
 
             builder.Services.AddControllers();
-            builder.Services.AddInfrastructure();
+            builder.Services.AddInfrastructure(builder.Configuration);
             builder.Services.AddPersistence(builder.Configuration);
             builder.Services.AddApplication();
 
